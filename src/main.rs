@@ -25,5 +25,5 @@ fn echo() {
 }
 
 fn cat() {
-
+    println!("Printing something");
 }

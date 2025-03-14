@@ -1,29 +1,23 @@
-use std::io::stdin;
-use std::env;
+use std::time;
+
+#[derive(Debug)]
+struct PlayerInformation {
+    level: u32,
+    resource: f64,
+    last_save: time::SystemTime
+}
 
 fn main() {
-    println!("Hello, world!");
-    let args: Vec<String> = env::args().collect();
+    println!("This is the beginning of the code");
+    let player_test = PlayerInformation{
+        level: 35,
+        resource: 100.0,
+        last_save: time::SystemTime::now()
+    };
 
+    println!("{}", player_test.level);
+    println!("{}", player_test.resource);
+    println!("{:?}", player_test.last_save);
     
-    let f: &str = "Some string";
-    println!("{}", f);
-
-    if args.len() > 0 {
-        match args[0].as_str() {
-            "echo" => echo(),
-            "cat" => cat(),
-            _ => println!("Uknown command"),
-        }   
-    }
-
-}
-
-fn echo() {
-    let mut input = String::new();
-    stdin().read_line(&mut input).expect("Failed to read");
-}
-
-fn cat() {
-    println!("Printing something");
+    println!("{:?}", player_test);
 }
